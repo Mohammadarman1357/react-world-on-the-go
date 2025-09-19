@@ -1,59 +1,81 @@
-Programming Hero Countries API
-A simple project demonstrating the usage of the Programming Hero Countries API endpoints. Provides information about all countries, specific country by code or name, or by language.
-Table of Contents
-APIs Used
+---
+# Programming Hero Countries API
 
-Endpoints
+A simple project demonstrating the usage of the Programming Hero Countries API endpoints.
+Provides information about all countries, specific country by code or name, or by language.
+---
 
-https://openapi.programming-hero.com/api/all
-https://openapi.programming-hero.com/api/alpha/116
-https://openapi.programming-hero.com/api/lang/english
-https://openapi.programming-hero.com/api/name/bangladesh
-Usage
+## Table of Contents
 
-Getting Started
+- [APIs Used](#apis-used)
+- [Endpoints](#endpoints)
 
-Example Responses
+  - https://openapi.programming-hero.com/api/all
+  - https://openapi.programming-hero.com/api/alpha/116
+  - https://openapi.programming-hero.com/api/lang/english
+  - https://openapi.programming-hero.com/api/name/bangladesh
 
-APIs Used
+- [Usage](#usage)
+- [Getting Started](#getting-started)
+- [Example Responses](#example-responses)
+
+
+---
+
+## APIs Used
+
 These are the Programming Hero APIs this project interacts with:
 
-Endpoint	Purpose
-/api/all	Fetches data on all countries.
-/api/alpha/{code}	Fetches data about a country by its ISO alpha-code (e.g. 116).
-/api/lang/{language}	Fetches countries where the specified language is spoken.
-/api/name/{name}	Fetches data on a country (or countries) by its common name.
-Endpoints
-/api/all
-URL: GET /api/all
-Description: Returns an array of all countries and their information: name, code, region, population, etc.
-/api/alpha/{code}
-URL: GET /api/alpha/{code}
+| Endpoint               | Purpose                                                              |
+| ---------------------- | -------------------------------------------------------------------- |
+| `/api/all`             | Fetches data on **all countries**.                                   |
+| `/api/alpha/{code}`    | Fetches data about a country by its **ISO alpha-code** (e.g. `116`). |
+| `/api/lang/{language}` | Fetches countries where the specified **language** is spoken.        |
+| `/api/name/{name}`     | Fetches data on a country (or countries) by its **common name**.     |
 
-Parameter:
+---
 
-code (string or numeric) — the ISO alpha code of the country (e.g. 116)
-Description: Returns detailed data for the country identified by that ISO code.
+## Endpoints
 
-/api/lang/{language}
-URL: GET /api/lang/{language}
+### `/api/all`
 
-Parameter:
+- **URL**: `GET /api/all`
+- **Description**: Returns an array of all countries and their information: name, code, region, population, etc.
 
-language (string) — the language name (e.g. english)
-Description: Returns the list of countries that speak the given language.
+### `/api/alpha/{code}`
 
-/api/name/{name}
-URL: GET /api/name/{name}
+- **URL**: `GET /api/alpha/{code}`
+- **Parameter**:
 
-Parameter:
+  - `code` (string or numeric) — the ISO alpha code of the country (e.g. `116`)
 
-name (string) — the common name of the country (e.g. bangladesh)
-Description: Return data for country or countries whose name matches the supplied parameter.
+- **Description**: Returns detailed data for the country identified by that ISO code.
 
-Usage
+### `/api/lang/{language}`
+
+- **URL**: `GET /api/lang/{language}`
+- **Parameter**:
+
+  - `language` (string) — the language name (e.g. `english`)
+
+- **Description**: Returns the list of countries that speak the given language.
+
+### `/api/name/{name}`
+
+- **URL**: `GET /api/name/{name}`
+- **Parameter**:
+
+  - `name` (string) — the common name of the country (e.g. `bangladesh`)
+
+- **Description**: Return data for country or countries whose name matches the supplied parameter.
+
+---
+
+## Usage
+
 Here’s how you might use these endpoints in your app (JavaScript / fetch example):
 
+```js
 // Fetch all countries
 fetch("https://openapi.programming-hero.com/api/all")
   .then((res) => res.json())
@@ -73,23 +95,33 @@ fetch("https://openapi.programming-hero.com/api/lang/english")
 fetch("https://openapi.programming-hero.com/api/name/bangladesh")
   .then((res) => res.json())
   .then((data) => console.log(data));
-Getting Started
+```
+
+---
+
+## Getting Started
+
 To set up this project locally:
 
-Clone the repository
+1. Clone the repository
+2. Install dependencies (if any)
 
-Install dependencies (if any)
+   - e.g. `npm install` or `yarn install`
 
-e.g. npm install or yarn install
-Create any configuration file if needed (e.g. for environment variables)
+3. Create any configuration file if needed (e.g. for environment variables)
+4. Run the app
 
-Run the app
+   - e.g. `npm start`
 
-e.g. npm start
-Example Responses
+---
+
+## Example Responses
+
 Here are example shapes of JSON responses you may get (fields may vary):
 
-/api/all
+### `/api/all`
+
+```json
 [
   {
     "name": "Afghanistan",
@@ -111,7 +143,11 @@ Here are example shapes of JSON responses you may get (fields may vary):
   }
   // ... many more
 ]
-/api/alpha/116
+```
+
+### `/api/alpha/116`
+
+```json
 {
   "name": "Country-Name",
   "alpha2Code": "XX",
@@ -121,7 +157,11 @@ Here are example shapes of JSON responses you may get (fields may vary):
   "population": ...,
   // ... other details
 }
-/api/lang/english
+```
+
+### `/api/lang/english`
+
+```json
 [
   {
     "name": "United Kingdom",
@@ -137,7 +177,11 @@ Here are example shapes of JSON responses you may get (fields may vary):
   }
   // ... more countries
 ]
-/api/name/bangladesh
+```
+
+### `/api/name/bangladesh`
+
+```json
 [
   {
     "name": "Bangladesh",
@@ -149,3 +193,6 @@ Here are example shapes of JSON responses you may get (fields may vary):
     // ...
   }
 ]
+```
+
+---
